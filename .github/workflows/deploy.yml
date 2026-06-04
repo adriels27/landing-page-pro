@@ -36,6 +36,7 @@ jobs:
       - name: Deploy Cloud Run
         run: |
           gcloud run deploy landing-service \
+            --project=${{ secrets.GCP_PROJECT_ID }} \
             --image us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/landing-repo/landing:${{ github.sha }} \
             --platform managed \
             --region us-central1 \
